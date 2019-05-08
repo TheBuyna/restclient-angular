@@ -1,0 +1,26 @@
+<div class="player-table">
+  <table class="table table-dark table-hover">
+    <thead>
+      <h1>PLAYERS</h1>
+    </thead>
+    <tbody [@fadeIn]="spelers.length">
+      <tr *ngFor="let speler of spelers">
+        <!-- Toon Text input en Save button als is id zelfde als EditrowID -->
+        <td *ngIf="speler.spe_id === EditRowID"><input type="text" class="form-control" [(ngModel)]="speler.spe_naam"></td>
+        <td *ngIf="speler.spe_id === EditRowID"><button class="btn btn-success" (click)="saveEdit(speler.spe_id, speler.spe_naam)">Save</button></td>
+        <td *ngIf="speler.spe_id !== EditRowID">{{speler.spe_naam}}</td>
+        <td *ngIf="speler.spe_id !== EditRowID"><button class="btn btn-primary" (click)="editRow(speler.spe_id)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteSpeler(speler.spe_id, speler.spe_naam)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <form #spelerForm="ngForm" (ngSubmit)="addSpeler(speler_naam); resetSpelerForm(spelerForm)">
+    <span>
+      <div class="form-group row">
+        <label for="speler_naam" class="col-2 col-form-label">Voer uw naam:</label>
+        <input type="text" class="form-control col-6" id="speler_naam" name="speler_naam" placeholder="Naam.." [(ngModel)]="speler_naam"> 
+      </div>
+      <button type="submit" class="btn btn-primary">Niewe speler toevoegen</button>
+    </span>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+.player-table {
+    margin: 2em;
+    width: 1000px;
+
+    table {
+        border-radius: 5px;
+        thead {
+            h1 {
+                padding: .5em;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    input[type="text"] {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        background: linear-gradient(90deg, #d1d8e0, #a5b1c2);
+        padding: 1em;
+        border-radius: .5em;
+    }
+}
